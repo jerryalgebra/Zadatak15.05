@@ -61,13 +61,13 @@ class MainActivity : AppCompatActivity(), DataListAdapter.OnItemClickListener {
 
         val person = Person(name, dateOfBirth)
         dataList.add(person)
-        dataListAdapter.notifyDataSetChanged()
+        dataListAdapter.notifyDataSetChanged() // ova linija koda je bitna jer obavjestava adapter da je doslo do promjene u listi
 
         etName.text.clear()
         etDateOfBirth.text.clear()
     }
 
-    override fun onItemClick(position: Int) {
+    override fun onItemClick(position: Int) { // ova metoda se poziva kada korisnik klikne na neki element u recycler viewu
         val person = dataList[position]
 
         val intent = Intent(this, DetailsActivity::class.java)
